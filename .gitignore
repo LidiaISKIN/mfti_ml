@@ -10,6 +10,5 @@ __pycache__
 lab01_ml_pipeline/car_data.csv
 lab01_ml_pipeline/column_names.json
 lab01_ml_pipeline/grad.png
-lab01_ml_pipeline/lab01_part2_ml_pipeline.ipynb
 lab01_ml_pipeline/lab01_part3_svm_kernels.ipynb
 README.md
