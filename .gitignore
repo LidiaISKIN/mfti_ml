@@ -1,4 +1,5 @@
 extra_*
+hw02*
 hw04*
 hw05*
 hw06*
@@ -10,5 +11,4 @@ __pycache__
 lab01_ml_pipeline/car_data.csv
 lab01_ml_pipeline/column_names.json
 lab01_ml_pipeline/grad.png
-lab01_ml_pipeline/lab01_part3_svm_kernels.ipynb
 README.md
