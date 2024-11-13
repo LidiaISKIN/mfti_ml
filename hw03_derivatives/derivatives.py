@@ -111,33 +111,33 @@ class LossAndDerivatives:
         derivative = (1 / samples) * X.T.dot(sign_error) / targets
         return derivative
 
-    @staticmethod
-    def mae_derivative(X, Y, w):
-        """
-        X : numpy array of shape (`n_observations`, `n_features`)
-        Y : numpy array of shape (`n_observations`, `target_dimensionality`) or (`n_observations`,)
-        w : numpy array of shape (`n_features`, `target_dimensionality`) or (`n_features`,)
+    # @staticmethod
+    # def mae_derivative(X, Y, w):
+    #     """
+    #     X : numpy array of shape (`n_observations`, `n_features`)
+    #     Y : numpy array of shape (`n_observations`, `target_dimensionality`) or (`n_observations`,)
+    #     w : numpy array of shape (`n_features`, `target_dimensionality`) or (`n_features`,)
 
-        Return : numpy array of same shape as `w`
+    #     Return : numpy array of same shape as `w`
 
-        Computes the MAE derivative for linear regression (X.dot(w)) with no bias term
-        w.r.t. the weight matrix `w`.
+    #     Computes the MAE derivative for linear regression (X.dot(w)) with no bias term
+    #     w.r.t. the weight matrix `w`.
 
-        In case `target_dimensionality` > 1, the error is averaged along this dimension as well.
-        """
-        # YOUR CODE HERE
-        samples = X.shape[0]
-        targets = 1 if Y.ndim == 1 else Y.shape[1]
-        preds = X.dot(w)
-        error = preds - Y
-        sign_error = np.sign(error)
-        sample_contrib = np.zeros_like(w)
+    #     In case `target_dimensionality` > 1, the error is averaged along this dimension as well.
+    #     """
+    #     # YOUR CODE HERE
+    #     samples = X.shape[0]
+    #     targets = 1 if Y.ndim == 1 else Y.shape[1]
+    #     preds = X.dot(w)
+    #     error = preds - Y
+    #     sign_error = np.sign(error)
+    #     sample_contrib = np.zeros_like(w)
 
-        for i in range(samples):
-            sample_contrib += np.outer(X[i], sign_error[i])
+    #     for i in range(samples):
+    #         sample_contrib += np.outer(X[i], sign_error[i])
 
-        derivative = sample_contrib / (samples * targets)
-        return derivative
+    #     derivative = sample_contrib / (samples * targets)
+    #     return derivative
 
     @staticmethod
     def l2_reg_derivative(w):
