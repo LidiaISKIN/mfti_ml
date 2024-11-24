@@ -17,14 +17,14 @@ class SimplifiedBaggingRegressor:
         for bag in range(self.num_bags):
             indices = np.random.choice(data_length, data_length, replace=True)
             self.indices_list.append(indices)
-        
+
     def fit(self, model_constructor, data, target):
         '''
         Fit model on every bag.
         Model constructor with no parameters (and with no ()) is passed to this function.
-        
+
         example:
-        
+
         bagging_regressor = SimplifiedBaggingRegressor(num_bags=10, oob=True)
         bagging_regressor.fit(LinearRegression, X, y)
         '''
@@ -41,7 +41,7 @@ class SimplifiedBaggingRegressor:
         if self.oob:
             self.data = data
             self.target = target
-        
+
     def predict(self, data):
         '''
         Get average prediction for every object from passed dataset
@@ -50,7 +50,7 @@ class SimplifiedBaggingRegressor:
         for i, model in enumerate(self.models_list):
             predictions[:, i] = model.predict(data)
         return predictions.mean(axis=1)
-    
+
     def _get_oob_predictions_from_every_model(self):
         '''
         Generates list of lists, where list i contains predictions for self.data[i] object
