@@ -3,7 +3,6 @@ hw02*
 hw04*
 hw06*
 hw07*
-hw08*
 hw09*
 lab02*
 __pycache__
@@ -11,3 +10,4 @@ lab01_ml_pipeline/car_data.csv
 lab01_ml_pipeline/column_names.json
 lab01_ml_pipeline/grad.png
 README.md
+grad.png
